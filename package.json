@@ -1,7 +1,7 @@
 {
-  "name": "genericNodePackage",
+  "name": "generic-node-package",
   "version": "0.0.1-alpha.0",
-  "description": "Setting up a Node Package\r ============================",
+  "description": "Generic Node Package - Fork and build your own",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

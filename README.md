@@ -63,12 +63,19 @@ Setting up a Node Package
       "main": "dist/index.js",
       "types": "dist/index.d.ts",
   
-- Versioning and Publishing
+- Versioning
   - `npm version` automatically bumps the specified version number (including pre-releases) and sets a corresponding git tag
-  - Prereleases
-    -  "version": "0.0.1-alpha1",
-  
+  - Bump only the pre-release number, with the prefix of 'alpha'
+    - `npm version prerelease --preid=alpha`
+    - will set the first time to: "version": "0.0.1-alpha1"
+  - Bump on the patch:
+    - `npm version patch`
+  - be sure that when you push to the remote, you include the tags:
+    - `git push --tags origin master`
 
+- Publishing
+  - `npm publish`
+  
 - How would CI Pipeline work?
 
 ## How to Customize
@@ -77,6 +84,8 @@ Setting up a Node Package
 - Adding Type declarations
 
 ## How to Publish
+- **Important**: 
+  - make sure the "name" in your package.json contains only lowercased letters and dashes
 - Background
   - 'Latest' tag is automatically applied by npm
     - when you ask for the @latest in a package.json, be sure whether you're getting a pre-release or not
