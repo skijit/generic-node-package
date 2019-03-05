@@ -87,6 +87,7 @@ Setting up a Node Package
 - **Important**: 
   - make sure the "name" in your package.json contains only lowercased letters and dashes, or publish won't work
   - make sure the "description" for your package.json is up to date
+  - be sure you've re-transpiled your typescript into the dist folder before publishing
 - Background
   - 'Latest' tag is automatically applied by npm
     - when you ask for the @latest in a package.json, be sure whether you're getting a pre-release or not
