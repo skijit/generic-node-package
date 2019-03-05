@@ -99,8 +99,31 @@ Setting up a Node Package
 - How would CI Pipeline work?
 
 ## How to Customize
-- Fork git repo
-- Adding dependencies
+- Fork the generic-node-package repo
+  - Go to the [TFS page](http://rictfserver1prd:8080/tfs/NMProjects/NewMarket/_git/genericNodePackage?_a=contents) for the generic-node-package repo and select 'Fork'
+    - Give the forked repo a new name, like 'testForkedGenericNodePackage'
+    - Put it whatever project you want
+- Clone the package:
+  - e.g. `git clone http://rictfserver1prd:8080/tfs/NMProjects/NewMarket/_git/testForkedGenericNodePackage`
+- Update package.json
+  - change "name" field
+  - change "version" to 0.0.0
+  - change "description" to whatever you want
+  - change the repository.url field to point to your forked repo.  E.G.
+
+  ```(json)
+  "repository": {
+    "type": "git",
+    "url": "http://rictfserver1prd:8080/tfs/NMProjects/NewMarket/_git/testForkedGenericNodePackage"
+  },
+  ```
+
+- Update any dependencies either through the npm cli or by modifying the package.json
+- Install dependencies: `npm install`
+- Test build: `npm run build`
+- Test your tests: `npm test`
+- Add your code and see other instructions for change management
+
 
 
 ## How to Publish
