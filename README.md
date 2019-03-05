@@ -21,6 +21,7 @@ Setting up a Node Package
 
 - NPM config
   - npm init -y
+  - set version: "version": "0.0.0"
   - npm install --save-dev typescript 
 
 - TypeScript config
@@ -63,6 +64,7 @@ Setting up a Node Package
       "types": "dist/index.d.ts",
   
 - Versioning and Publishing
+  - `npm version` automatically bumps the specified version number (including pre-releases) and sets a corresponding git tag
   - Prereleases
     -  "version": "0.0.1-alpha1",
   
