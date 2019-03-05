@@ -73,6 +73,26 @@ Setting up a Node Package
   - be sure that when you push to the remote, you include the tags:
     - `git push --tags origin master`
 
+- Testing
+  - We're going to use Jest
+    - It's more popular than karma, is typescript-friendly, and the api is compatible with jasmine
+  - `npm install --save-dev jest ts-jest @types/jest`
+  - create a new jestconfig.json file:
+
+  ```(json)
+  {
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  }
+  ```
+
+  - update the test entry in the package.json to: `"test": "jest --config jestconfig.json"`
+  - create a new folder called `__tests__` inside the src folder
+  - test your test: `npm run test`
+
 - Publishing
   - `npm publish`
   
@@ -81,7 +101,7 @@ Setting up a Node Package
 ## How to Customize
 - Fork git repo
 - Adding dependencies
-- Adding Type declarations
+
 
 ## How to Publish
 - **Important**: 
@@ -100,9 +120,47 @@ Setting up a Node Package
 - mkdir tmpAng
 - cd tmpAng
 - ng new tmpAng
-- ng serve
 - update the project .nmprc:
   registry=http://rictfserver1prd:8080/tfs/NMProjects/_packaging/NewMarketPackages/npm/registry/
   always-auth=true
 - add saved runtime dependency: `npm i --save generic-node-package@latest`
+- update app.component.ts
 
+```(typescript)
+import { Component } from '@angular/core';
+import { LogEntry, yo } from 'generic-node-package';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'tmpAng';
+
+  constructor() {
+    const v = <LogEntry>{
+      message: 'this is my message',
+      data: 'some other data',
+      time: new Date(),
+      level: 'some level string'
+    };
+      
+    console.log(yo(v));  
+  }
+  
+}
+```
+
+- `ng serve`
+
+## Todo
+- Discuss how we can set up a CI Deployment for node packages
+
+## Misc Sources
+- https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c
+- https://medium.com/cameron-nokes/the-30-second-guide-to-publishing-a-typescript-package-to-npm-89d93ff7bccd
+- https://medium.com/@mbostock/prereleases-and-npm-e778fc5e2420
+- https://blog.angularindepth.com/integrate-jest-into-an-angular-application-and-library-163b01d977ce
+- https://blog.angularindepth.com/the-angular-library-series-publishing-ce24bb673275
+- https://blog.angularindepth.com/angular-workspace-no-application-for-you-4b451afcc2ba
