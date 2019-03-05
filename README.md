@@ -85,11 +85,23 @@ Setting up a Node Package
 
 ## How to Publish
 - **Important**: 
-  - make sure the "name" in your package.json contains only lowercased letters and dashes
+  - make sure the "name" in your package.json contains only lowercased letters and dashes, or publish won't work
+  - make sure the "description" for your package.json is up to date
 - Background
   - 'Latest' tag is automatically applied by npm
     - when you ask for the @latest in a package.json, be sure whether you're getting a pre-release or not
   - Some people use the manually applied 'Next' tag instead, to help filter out pre-releases from 'Latest'
 - Check-in to Git with a corresponding Tag
-
+  - `git push --tags origin master`
 - Publish to Npm
+
+## Test Consume in an Angular project
+- mkdir tmpAng
+- cd tmpAng
+- ng new tmpAng
+- ng serve
+- update the project .nmprc:
+  registry=http://rictfserver1prd:8080/tfs/NMProjects/_packaging/NewMarketPackages/npm/registry/
+  always-auth=true
+- add saved runtime dependency: `npm i --save generic-node-package@latest`
+
