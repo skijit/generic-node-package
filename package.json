@@ -1,0 +1,21 @@
+{
+  "name": "genericNodePackage",
+  "version": "0.0.1-alpha1",
+  "description": "Setting up a Node Package\r ============================",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://rictfserver1prd:8080/tfs/NMProjects/NewMarket/_git/genericNodePackage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  }
+}
