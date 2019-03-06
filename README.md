@@ -3,7 +3,7 @@ Setting up a Reusable Node Package
 
 - This guide covers how to set up, version, and publish typescript-based node packages for reuse (presumably consuming in Angular spa's)
 - **Note**: The process for building libraries which have angular dependencies is different!
-  - see [this guide](TODO) for angular libraries
+  - see [this guide](http://notes.skjei.org/programming/web/angular2/angular-library-cookbook) for angular libraries
 - This guide discusses 2 alternate sequences you can follow to create your reusable package:
   1. Build by Hand (basically- how this repo was built)
   2. Fork this Repo and customize (this is easier)
